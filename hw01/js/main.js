@@ -73,5 +73,5 @@ console.log(result);
 digit = Math.floor(digit/10);
 console.log(digit);
 }
-alert("Result " + result +" times");
+alert("Result: " + result);
 
