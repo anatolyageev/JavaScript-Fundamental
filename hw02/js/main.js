@@ -1,7 +1,7 @@
 // Big task 1 functions
 const RASHOD_KRASKI = 16;
 const PaintCalc = (l, w, h) => (l * h * 2 + w * h * 2) / RASHOD_KRASKI;
-// const PaintCalc = (l,w,h) => h*(l+w); // 2 2 2 => 44 ???
+// const PaintCalc = (l,w,h) => 2*h*(l+w); // 2 2 2 => 44 ???
 
 // Big task 2 functions 
 
@@ -13,7 +13,6 @@ function initData() {
         }
         prices.push(+value);
     }
-    console.log(prices);
     for (let index = 0; index < 3; index++) {
         let value = prompt(`Enter B${index + 1} cupacity price from 0 to 100`);
         if (+value > 100 || +value <= 0) {
@@ -40,9 +39,7 @@ const luckyNumCheck = function (lukyNum) {
 
 const calculateLacky = function (num) {
     let righNum = digitToArray(num % 1000);
-    console.log("righNum: "+righNum);
     let leftNum = digitToArray(~~(num / 1000));
-    console.log("leftNum: "+leftNum);
     return Math.max(...righNum) == Math.max(...leftNum);
 }
 
@@ -51,9 +48,7 @@ const digitToArray = function (num) {
     let digit = +num;
     while (digit > 0) {
         arr.push((digit % 10));
-        console.log(arr);
         digit = Math.floor(digit / 10);
-        console.log(digit);
     }
     return arr;
 }
@@ -111,8 +106,6 @@ const SignDcoder = function (digit) {
         default:
             break;
     }
-    console.log('------------------');
-    console.log(result);
     return result;
 }
 
@@ -215,9 +208,7 @@ if (L > 1000 || W > 1000 || H > 1000) {
 //Task2
 let buckets = [];
 let prices = [];
-
 initData();
-console.log(buckets);
 alert(`Yoy will have ${benefit(prices, buckets)} rubls`);
 
 //Task3
