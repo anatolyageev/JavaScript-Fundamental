@@ -1,0 +1,10 @@
+
+#circle {
+    width: 10em;
+    height: 10em;
+    /* border: 2px solid red; */
+    border-radius: 50%;
+    line-height: 10em;  /* подробнее про line-height */
+    text-align: center;  /* выравнять текст по середине по горизонтали */
+    background: red;
+  }
