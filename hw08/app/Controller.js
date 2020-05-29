@@ -6,12 +6,17 @@ export default class Controller{
         this.model = new Model();
         this.view = new View();
         this.model.loadDefaultData(this.onLoadData);
+        this.view.render(this.model.todos);
+        // this.document.addEventListener("DOMContentLoaded", () => {
         this.view.addListeners(
             this.onTodoClick,
             this.allTodosDone,
             this.allTodosNotDone,
-            this.addTodo
+            this.addTodo,
+            this.onTodoClickTable,
+            this.onDeleteClickTable
         )
+        // });
     }
 
     onLoadData = () =>{
@@ -31,7 +36,7 @@ export default class Controller{
         this.view.render(this.model.todos);
     }
 
-    onTodoClick(ev) {
+    onTodoClick = (ev) => {
         console.log('click to do', ev.target);
         console.dir(ev.target);
     
@@ -41,12 +46,27 @@ export default class Controller{
         this.view.render(this.model.todos);
     }
 
-    addTodo() {
+    addTodo = () => {
         let text = this.view.getNewTodo();
-        console.log('new text ', text.value);
-        this.model.addNewItem(text.value);
+        this.model.addNewItem(text);
         this.view.render(this.model.todos);
     }
 
-    
+    onTodoClickTable = (ev) =>{
+        console.log("click table: ", ev.target);
+        console.dir(ev.target);
+        const id = ev.target.dataset.id;
+        console.log('ID: ', id);
+        this.model.setByClick(id);
+        this.view.render(this.model.todos);
+    }
+
+    onDeleteClickTable =(ev)=>{
+        console.log("click table del: ", ev.target);
+        console.dir(ev.target);
+        const id = ev.target.dataset.id;
+        console.log('ID del: ', id);
+        this.model.delByClick(id);
+        this.view.render(this.model.todos);
+    }
 }

@@ -46,5 +46,11 @@ export default class Model{
     setByClick(id){
         this.todos.forEach(todo => todo.id == id ? todo.isDone = !todo.isDone : null);
     }
+
+    delByClick(id){
+        this.todos = this.todos.filter((todo)=>{
+            return todo.id != id;
+        });
+    }
     
 }
